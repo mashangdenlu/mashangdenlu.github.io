@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>用户登录 - 起名大师</title>
+	<meta name="description" content="起名大师" />
+	<meta name="applicable-device" content="pc,mobile">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="applicable-device" content="pc,mobile">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="baidu-site-verification" content="">
+	<link type="text/css" rel="stylesheet" href="http://zqmodule.oss-cn-hangzhou.aliyuncs.com/www/auto.jump-api.cn/style.format.css" media="all" />
+	<style>
+		*{
+			padding:0;
+			margin:0;
+			border:0;
+		}
+		.overflow {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		ul, ol { list-style: none;}
+		a { text-decoration: none; color:#000; }
+		a:hover { text-decoration: none;  color:#000;}
+		a img {border:none; }
+	
+		body {
+			font-size:12px;
+			background-color: #fff;
+			
+			background-size: cover;
+		}
+
+		.front-card {
+			max-width: 368px;
+			margin: 80px auto;
+			padding: 50px 30px 60px;
+			border-radius: 5px;
+		}
+		@media (max-width: 992px)
+		{
+			.front-card {
+				margin: 60px auto;
+				border:none;
+				padding: 20px 5px 30px;
+			}
+			
+		}
+		.front-welcome {
+			border: 0;
+			display: block;
+			float: left;
+			height: 328px;
+			width: 560px;
+		}
+		.label-title {
+			margin-bottom: 6px;
+			color: #6c6d71;
+			font-size: 16px;
+			padding: 0;
+			display: block;
+		}
+	
+		.front-card .field{
+			margin-bottom:15px;
+		}
+		.front-card .text-input{
+			border: 1px solid #ccd6dd;
+			width: 100%;
+			height: 44px;
+			padding: 0 10px;
+			border: 1px solid #9da3a6;
+			background: #fff;
+			text-overflow: ellipsis;
+			box-sizing: border-box;
+			border-radius: 4px;
+			font-size: 16px;
+		}
+		
+		.EdgeButton--secondary {
+			width:100%;
+			min-height: 44px;
+			display: block;
+			padding: 6px 16px;
+			background-color:#005ea6;
+			color: #fff;
+			font-size: 15px;
+			text-align: center;
+			font-weight: 700;
+			border-radius:4px;
+			cursor:pointer;
+		}
+		
+		.loginSignUpSeparator {
+			border-top: 1px solid #cbd2d6;
+			position: relative;
+			margin: 35px 0 10px;
+			text-align: center;
+		}
+		.loginSignUpSeparator .textInSeparator {
+			background-color: #fff;
+			padding: 0 .5em;
+			position: relative;
+			color: #6c7378;
+			top: -.7em;
+			font-size:16px;
+		}
+		.btn-reg{
+			background-color: #d2dbe1;
+			width:100%;
+			text-align:center;
+			display:block;
+			color: #2C2E2F;
+			padding: 11px;
+			min-height: 44px;
+			border-radius:4px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-size: 15px;
+			font-weight: 700;
+		}
+		
+		.msg-success{
+			font-size:15px;
+			margin-top:5px;
+			display:none;
+			color:green;
+		}
+		.msg-error{
+			font-size:15px;
+			margin-top:5px;
+			display:none;
+			color:red;
+		}
+		#login-header {
+			text-align: center;
+			color: #2c2e2f;
+			font-size: 30px;
+			padding-bottom: 40px;
+			overflow: hidden;
+		}
+		#login-header a{
+			display:block;
+			width:49%;
+			float:left;
+			font-size:20px;
+		}
+		#login-header a:hover,#login-header a.active{
+			display:block;
+			width:49%;
+			float:left;
+			color:#005ea6;
+			border-bottom: 3px solid #005ea6;
+			padding-bottom: 15px;
+		}
+		.t-center {
+			text-align: center;
+			line-height: 24px;
+		}
+		a#sign-in-link{
+			text-decoration: none;
+			color: #2a5bd7;
+		}
+		/*.youke,.normal,.daili{display:none}*/
+	</style>
+</head>
+<body>
+<header id="header">
+	<div class="container-fluid row navbar">
+		<a href="/" class="navbar-brand">
+			<img id="logo" src="https://koro.oss-cn-beijing.aliyuncs.com/lanniaodlj/lnurl.cn.index/image/lnurl.logo001.png" alt="起名大师" />
+		</a>
+		<ul class="navbar-nav row">
+			<li class="fmenu">
+				<a class="fmenu-a" href="/wxcheck.html">批量检测</a>
+			</li>
+			<li class="fmenu">
+				<a class="fmenu-a" href="/wxjk.html">监控通知</a>
+			</li>
+			<li class="fmenu">
+				<a class="fmenu-a" href="/api-doc.html">API接口</a>
+			</li>
+			<li class="fmenu youke">
+				<a class="fmenu-a" href="/reg.html">注册</a>	
+			</li>
+			<li class="fmenu youke">
+				<a class="fmenu-a" href="/login.html">登录</a>
+			</li>
+			<li class="fmenu normal daili">
+				<a class="fmenu-a" href="#">{$username}<i class="caret"></i></a>
+				<ul class="dropdown-menu">
+					<li class="dropdown-menu-item"><a href="/logout.html">退出</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>
+<div class="container-fluid">
+	<div class="front-card">
+		<div id="login-header">用户登录</div>
+		<form  class="t1-form signin" id="data_form" onsubmit="return user_login_form()">
+			<div class="username field">
+				<label class="label-title">用户名</label>
+				<input type="text" id="signin-email" class="text-input email-input" name="username"  placeholder="">
+			</div>
+			<div class="password field">
+				<label class="label-title" >登录密码</label>
+				<input type="password" id="signin-password" class="text-input flex-table-input" name="password" placeholder="">
+			</div>
+			<div class="btns field" style="margin-top:30px;">
+				<button type="submit" class="submit EdgeButton EdgeButton--medium EdgeButton--secondary flex-table-btn js-submit">登录</button>
+			</div>
+			<div class="t-center">
+				<span style="font-size:15px;">
+					<span>还没有账号？</span>
+					<a id="sign-in-link" href="/reg.html?r=">立即注册</a>
+				</span>
+			</div>
+			<div class="btns field">
+				<div class="msg-success">登录成功！</div>
+				<div class="msg-error">手机号或密码不正确！</div>
+			</div>
+		 </form>
+	</div>
+</div>
+<script>
+var tool = {
+	is_pc:function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/android/)||ua.match(/iphone/)||ua.match(/ipod/)) {
+			return false;
+		} else {
+			return true;
+		}
+	},
+	getParamsFromUrl:function() {
+		var query = location.search.substr(1);
+		var result = {};
+		query.split("&").forEach(function (part) {
+			var item = part.split("=");
+			result[item[0]] = decodeURIComponent(item[1]);
+		});
+		return result;
+	},
+	renderMenu:function() {
+		document.querySelectorAll('.youke,.normal,.daili').forEach(function (element,index) {
+			element.style.display="none";
+		});
+		document.querySelectorAll('.'+tool.get_user_role()).forEach(function (element,index) {
+			element.style.display="block";
+		});
+		document.querySelectorAll('.fmenu a').forEach(function (element,index) {
+			element.innerHTML = element.innerHTML.replace('{$username}',tool.getCookie('username'));
+		});
+	},
+	setCookie:function(name,value){
+		var Days = 3650;
+		var exp = new Date();
+		exp.setTime(exp.getTime() + Days*24*60*60*1000);
+		document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+	},
+
+	//读取cookies
+	getCookie:function(name){
+		var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr=document.cookie.match(reg))
+			return (arr[2]);
+		else
+			return null;
+	},
+	getCookies:function(){
+		var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr=document.cookie.match(reg))
+			return (arr[2]);
+		else
+			return null;
+	},
+	//删除cookies
+	delCookie:function(name){
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval=this.getCookie(name);
+		if(cval!=null)
+			document.cookie = name + "="+cval+";expires="+exp.toGMTString();
+	},
+	set_user:function(user){
+		this.setCookie('uid',user.uid);
+		this.setCookie('fid',user.fid);
+		this.setCookie('role',user.role);
+		this.setCookie('username',user.username);
+	},
+	get_user:function(){
+		this.setCookie('uid',user.uid);
+		this.setCookie('fid',user.fid);
+		this.setCookie('role',user.role);
+		this.setCookie('username',user.username);
+	}
+	,
+	get_user_role:function(){
+		return this.getCookie('role') || 'youke';
+	}
+}
+tool.renderMenu();
+</script>
+<script src="http://juhecdn.oss-cn-hangzhou.aliyuncs.com/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+function user_login_form(){
+	$(".msg-error").hide();
+	$(".msg-success").hide();
+	$.ajax({
+		type: "POST",
+		url: "http://autoname.jump-api.cn/user/login",
+		data:$('#data_form').serialize(),
+		success: function(data) {
+			if(data.status == 200) {
+				$(".msg-success").show();
+				tool.set_user(data);
+				setTimeout(function(){
+					window.location.href = tool.getParamsFromUrl().r || "/";
+				},1000)
+			} else {
+				$(".msg-error").show();
+			}
+		},
+		dataType:"json"
+	});
+	return false;
+}
+</script>
+</body>
+</html>
